@@ -1,0 +1,272 @@
+<div class="container">
+    <div class="card-form">
+      <h1>REGISTRO Y ACTUALIZACIÓN DE PROVEEDORES</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="enviarForm(registerForm.value)">
+      <!-- Datos de la empresa -->
+      <div class="row g-3 pt-2" style="width: 80%; margin: 0 auto">
+        <h3>Datos de la empresa</h3>
+
+        <div class="col-md-6 group-input">
+          <label for="nombre">Nombre</label>
+          <input type="text" name="nombre" formControlName="nombre"/>
+          <span *ngIf="registerForm.get('nombre')?.touched && registerForm.get('nombre')?.errors?.['required']">
+          El nombre es requerido
+          </span>
+
+        </div>
+
+        <div class="col-md-6 group-input">
+          <label for="direccion">Direccion</label>
+          <input type="text" name="direccion" formControlName="direccion"/>
+          <span *ngIf="registerForm.get('direccion')?.touched && registerForm.get('direccion')?.errors?.['required']">
+            La direccion es requerida
+            </span>
+          
+        </div>
+
+        <div class="col-md-6 group-input">
+          <label for="direccion">Telefono</label>
+          <input type="text" name="telefono" formControlName="telefono"/>
+          <span *ngIf="registerForm.get('telefono')?.touched && registerForm.get('telefono')?.errors?.['required']">
+            El telefono es requerido
+            </span>
+        </div>
+
+        <div class="col-md-6 group-input">
+          <label for="web">Pagina Web</label>
+          <input type="text" name="web" formControlName="paginaweb"/>
+          <span *ngIf="registerForm.get('paginaweb')?.touched && registerForm.get('paginaweb')?.errors?.['required']">
+            La url de la pagina web es requerida
+            </span>
+        </div>
+
+        <div class="col-md-6 group-input">
+          <label for="rut">NIT/RUT</label>
+          <input type="text" name="rut" formControlName="rut"/>
+          <span *ngIf="registerForm.get('rut')?.touched && registerForm.get('rut')?.errors?.['required']">
+            El RUT es requerido
+            </span>
+        </div>
+
+        <div class="col-md-6 group-input">
+          <label for="email">Correo Eletronico</label>
+          <input type="email" name="email" formControlName="correo"/>
+          <span *ngIf="registerForm.get('correo')?.touched && registerForm.get('correo')?.errors?.['required']">
+            El correo es requerido
+            </span>
+          <span *ngIf="registerForm.get('correo')?.touched && registerForm.get('correo')?.errors?.['email']">
+            El correo debe ser valido
+            </span>
+        </div>
+
+        <div class="col-md-12">
+          <textarea
+            name="razonsocial"
+            id="razonsocial"
+            placeholder="Razon Social"
+          ></textarea>
+        </div>
+      </div>
+      <!-- Fin -->
+
+      <!-- Actividad Economica -->
+      <div class="row g-3 pt-2" style="width: 80%; margin: 0 auto">
+        <div class="col-md-12">
+          <h3>Actividad Economica</h3>
+
+          <div class="cont-select">
+            <label for="">Productos</label>
+            <select>
+              <option value="1">Papeleria</option>
+              <option value="2">Dotacion</option>
+              <option value="3">Publicidad</option>
+              <option value="3">Combustible</option>
+              <option value="3">Otro</option>
+            </select>
+          </div>
+
+          <div class="cont-select">
+            <label for="">Servicios</label>
+            <select>
+              <option value="1">Consultor</option>
+              <option value="2">Topografia</option>
+              <option value="3">Alquileres</option>
+              <option value="3">Mantenimientos Equipos</option>
+              <option value="3">Transporte</option>
+              <option value="3">Otro</option>
+            </select>
+          </div>
+
+          <div class="col-md-12">
+            <label for=""
+              >Productos O Servicios Ofrecidos(Breve Descripcion)</label
+            >
+
+            <textarea
+              name="razonsocial"
+              id="razonsocial"
+              placeholder="Razon Social"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+      <!-- Fin -->
+
+      <!-- Informacion  Del Representante Legal -->
+      <div class="row g-3 pt-2" style="width: 80%; margin: 0 auto">
+        <h3>Informacion Del Representante Legal</h3>
+
+        <div class="col-md-6 group-input">
+          <label for="nombreApellidos">Nombre y Apellidos</label>
+          <input type="text" name="nombreApellidos" />
+        </div>
+
+        <div class="col-md-6 group-input">
+          <label for="cedula">Cedula De Ciudadania</label>
+          <input type="number" name="cedula" />
+        </div>
+
+        <div class="col-md-12 group-input">
+          <label for="correo">Correo Eletronico</label>
+          <input type="email" name="correo" />
+        </div>
+
+        <div class="col-md-6 group-input">
+          <label for="number">Telefono</label>
+          <input type="text" name="number" />
+        </div>
+
+        <div class="col-md-6 group-input">
+          <label for="celular">Celular</label>
+          <input type="text" name="celular" />
+        </div>
+      </div>
+      <!-- Fin -->
+
+      <!-- Informacion Para Contabilidad -->
+      <div class="row g-3 pt-2" style="width: 80%; margin: 0 auto">
+    
+        <h3>Informacion Para Contabilidad</h3>
+        <div class="col-md-6">
+            <div class="item">
+                <span>Responsable Del Iva</span>
+                <div class="form-check check-item">
+                    <input class="form-check-input" type="radio" name="flexRadioIva" id="flexRadioNo">
+                    <label class="form-check-label" for="flexRadioNo">
+                      Si
+                    </label>
+                  </div>
+    
+                  <div class="form-check check-item">
+                    <input class="form-check-input" type="radio" name="flexRadioIva" id="flexRadioYes" >
+                    <label class="form-check-label" for="flexRadioYes">
+                      No
+                    </label>
+                  </div>
+            </div>
+
+            <div class="item">
+                <span>Autorretenedor</span>
+                <div class="form-check check-item">
+                    <input class="form-check-input" type="radio" name="flexRadioAutoR" id="flexRadioNo">
+                    <label class="form-check-label" for="flexRadioNo">
+                      Si
+                    </label>
+                  </div>
+    
+                  <div class="form-check check-item">
+                    <input class="form-check-input" type="radio" name="flexRadioAutoR" id="flexRadioYes" >
+                    <label class="form-check-label" for="flexRadioYes">
+                      No
+                    </label>
+                  </div>
+            </div>
+
+            <div class="item">
+                <span>Gran Contribuyente</span>
+                <div class="form-check check-item">
+                    <input class="form-check-input" type="radio" name="flexRadioContribuyente" id="flexRadioNo">
+                    <label class="form-check-label" for="flexRadioNo">
+                      Si
+                    </label>
+                  </div>
+    
+                  <div class="form-check check-item">
+                    <input class="form-check-input" type="radio" name="flexRadioContribuyente" id="flexRadioYes" >
+                    <label class="form-check-label" for="flexRadioYes">
+                      No
+                    </label>
+                  </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 group-input">
+            <label for="correoCorp">Correo Corporativo 1</label>
+            <input type="text" name="correoCorp" />
+            <button class="btn-cor">+</button>
+          </div>
+
+        <div class="col-md-12 group-input">
+            <label for="correoCorp">Nombre Y Cargo Del Responsable</label>
+            <input type="text" name="correoCorp" />
+          </div>
+
+          <!-- Informacion Fiscal -->
+          <h4 class="text-center">Informacion Fiscal</h4>
+
+          <div class="col-md-6">
+
+            <div class="item">
+                <span>Regimen Simplificado</span>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckRegimen">
+                  </div>
+            </div>
+
+            <div class="item">
+                <span>Regimen Comun</span>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckRegimen">
+                  </div>
+            </div>
+
+            <div class="item">
+                <span>Gran Contribuyente</span>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckRegimen">
+                  </div>
+            </div>
+            
+            <div class="item">
+                <span>Autorretenedor De Renta</span>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckRegimen">
+                  </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 group-input">
+            <label for="numeroResolucion">Numero De Resolucion</label>
+            <input type="number" name="numeroResolucion" />
+          </div>
+          <div class="col-md-6 group-input">
+            <label for="codigoCI">Código Actividad CIIU</label>
+            <input type="number" name="codigoCI" />
+          </div>
+          <div class="col-md-6 group-input">
+            <label for="departamento">Departamento</label>
+            <input type="number" name="departamento" />
+          </div>
+          <div class="col-md-6 group-input">
+            <label for="ciudad">Ciudad</label>
+            <input type="number" name="ciudad" />
+          </div>
+    </div>
+      <!-- Fin -->
+
+      <div class="col-md-12" style="padding:20px ;">
+        <button [disabled]="registerForm.invalid" type="submit" class="btn-enviar">Enviar</button>
+      </div>
+    </form>
+  </div>
+</div>
