@@ -10,7 +10,7 @@
           <label for="nombre">Nombre</label>
           <input type="text" name="nombre" formControlName="nombre"/>
           <span *ngIf="registerForm.get('nombre')?.touched && registerForm.get('nombre')?.errors?.['required']">
-          El nombre es requerido
+          El nombre de la empresa es requerido
           </span>
 
         </div>
@@ -28,7 +28,7 @@
           <label for="direccion">Telefono</label>
           <input type="text" name="telefono" formControlName="telefono"/>
           <span *ngIf="registerForm.get('telefono')?.touched && registerForm.get('telefono')?.errors?.['required']">
-            El telefono es requerido
+            El numero telefono es requerido
             </span>
         </div>
 
@@ -46,6 +46,9 @@
           <span *ngIf="registerForm.get('rut')?.touched && registerForm.get('rut')?.errors?.['required']">
             El RUT es requerido
             </span>
+             <span *ngIf="registerForm.get('rut')?.touched && registerForm.get('rut')?.errors?.['minlength']">
+            La descripcion debe tener minimo 5 caracteres
+            </span>
         </div>
 
         <div class="col-md-6 group-input">
@@ -59,12 +62,19 @@
             </span>
         </div>
 
-        <div class="col-md-12">
+        <div class="col-md-12 group-input">
           <textarea
             name="razonsocial"
             id="razonsocial"
-            placeholder="Razon Social"
+            placeholder="Descripcion"
+            formControlName="razonsocial"
           ></textarea>
+          <span *ngIf="registerForm.get('razonsocial')?.touched && registerForm.get('razonsocial')?.errors?.['required']">
+            El descripcion es requerida
+            </span>
+          <span *ngIf="registerForm.get('razonsocial')?.touched && registerForm.get('razonsocial')?.errors?.['minlength']">
+            La descripcion debe tener minimo 25 caracteres
+            </span>
         </div>
       </div>
       <!-- Fin -->
@@ -77,36 +87,45 @@
           <div class="cont-select">
             <label for="">Productos</label>
             <select>
-              <option value="1">Papeleria</option>
-              <option value="2">Dotacion</option>
-              <option value="3">Publicidad</option>
-              <option value="3">Combustible</option>
-              <option value="3">Otro</option>
+              <option value="0" selected></option>
+              <option value="papeleria">Papeleria</option>
+              <option value="dotacion">Dotacion</option>
+              <option value="publicidad">Publicidad</option>
+              <option value="combustible">Combustible</option>
+              <option value="otro">Otro</option>
             </select>
           </div>
 
           <div class="cont-select">
             <label for="">Servicios</label>
             <select>
-              <option value="1">Consultor</option>
-              <option value="2">Topografia</option>
-              <option value="3">Alquileres</option>
-              <option value="3">Mantenimientos Equipos</option>
-              <option value="3">Transporte</option>
-              <option value="3">Otro</option>
+              <option value="0" selected></option>
+              <option value="consultor">Consultor</option>
+              <option value="topografia">Topografia</option>
+              <option value="alquileres">Alquileres</option>
+              <option value="matenimientosEquipos">Mantenimientos Equipos</option>
+              <option value="Transporte">Transporte</option>
+              <option value="otro">Otro</option>
             </select>
           </div>
 
-          <div class="col-md-12">
+          <div class="col-md-12 group-input">
             <label for=""
               >Productos O Servicios Ofrecidos(Breve Descripcion)</label
             >
 
             <textarea
-              name="razonsocial"
-              id="razonsocial"
-              placeholder="Razon Social"
+              name="servicios"
+              id="servicios"
+              placeholder="Descripcion"
+              formControlName="servicioTextArea"
             ></textarea>
+            <span *ngIf="registerForm.get('servicioTextArea')?.touched && registerForm.get('servicioTextArea')?.errors?.['required']">
+              El descripcion es requerida
+              </span>
+            <span *ngIf="registerForm.get('servicioTextArea')?.touched && registerForm.get('servicioTextArea')?.errors?.['minlength']">
+              La descripcion debe tener minimo 25 caracteres
+              </span>
           </div>
         </div>
       </div>
@@ -118,27 +137,48 @@
 
         <div class="col-md-6 group-input">
           <label for="nombreApellidos">Nombre y Apellidos</label>
-          <input type="text" name="nombreApellidos" />
+          <input type="text" name="nombreApellidos" formControlName="nombreRepresentante">
+          <span *ngIf="registerForm.get('nombreRepresentante')?.touched && registerForm.get('nombreRepresentante')?.errors?.['required']">
+            El nombre es requerido
+            </span>
         </div>
 
         <div class="col-md-6 group-input">
           <label for="cedula">Cedula De Ciudadania</label>
-          <input type="number" name="cedula" />
+          <input type="number" name="cedula" formControlName="cedula">
+          <span *ngIf="registerForm.get('cedula')?.touched && registerForm.get('cedula')?.errors?.['required']">
+            El numero de cedula es requerida
+            </span>
+          <span *ngIf="registerForm.get('cedula')?.touched && registerForm.get('cedula')?.errors?.['minlength']">
+            El numero de cedula debe tener minimo 25 caracteres
+            </span>
         </div>
 
         <div class="col-md-12 group-input">
           <label for="correo">Correo Eletronico</label>
-          <input type="email" name="correo" />
+          <input type="email" name="correo" formControlName="correoR">
+          <span *ngIf="registerForm.get('correoR')?.touched && registerForm.get('correoR')?.errors?.['required']">
+            El correo es requerido
+            </span>
+          <span *ngIf="registerForm.get('correoR')?.touched && registerForm.get('correoR')?.errors?.['email']">
+            El correo debe ser valido
+            </span>
         </div>
 
         <div class="col-md-6 group-input">
           <label for="number">Telefono</label>
-          <input type="text" name="number" />
+          <input type="text" name="number" formControlName="telefonoR"/>
+          <span *ngIf="registerForm.get('telefonoR')?.touched && registerForm.get('telefonoR')?.errors?.['required']">
+            El numero telefono es requerido
+            </span>
         </div>
 
         <div class="col-md-6 group-input">
           <label for="celular">Celular</label>
-          <input type="text" name="celular" />
+          <input type="text" name="celular" formControlName="celular">
+          <span *ngIf="registerForm.get('celular')?.touched && registerForm.get('celular')?.errors?.['required']">
+            El numero de celular es requerido
+            </span>
         </div>
       </div>
       <!-- Fin -->
@@ -202,13 +242,23 @@
 
         <div class="col-md-6 group-input">
             <label for="correoCorp">Correo Corporativo 1</label>
-            <input type="text" name="correoCorp" />
-            <button class="btn-cor">+</button>
+            <input type="text" name="correoCorp" formControlName="correoCorp">
+            <span *ngIf="registerForm.get('correoCorp')?.touched && registerForm.get('correoCorp')?.errors?.['required']">
+              El correo es requerido
+              </span>
+            <span *ngIf="registerForm.get('correoCorp')?.touched && registerForm.get('correoCorp')?.errors?.['email']">
+              El correo debe ser valido
+              </span>
+
+            <button (click)="addBtn()" class="btn-cor">+</button>
           </div>
 
         <div class="col-md-12 group-input">
-            <label for="correoCorp">Nombre Y Cargo Del Responsable</label>
-            <input type="text" name="correoCorp" />
+            <label for="NombreRespon">Nombre Y Cargo Del Responsable</label>
+            <input type="text" name="NombreRespon" formControlName="NombreRespon" />
+            <span *ngIf="registerForm.get('NombreRespon')?.touched && registerForm.get('NombreRespon')?.errors?.['required']">
+              El nombre del responsable es requerido
+              </span>
           </div>
 
           <!-- Informacion Fiscal -->
@@ -247,26 +297,60 @@
 
           <div class="col-md-6 group-input">
             <label for="numeroResolucion">Numero De Resolucion</label>
-            <input type="number" name="numeroResolucion" />
+            <input type="number" name="numeroResolucion" formControlName="numeroResolucion">
+            <span *ngIf="registerForm.get('numeroResolucion')?.touched && registerForm.get('numeroResolucion')?.errors?.['required']">
+              El numero de resolucion es requerido
+              </span>
           </div>
           <div class="col-md-6 group-input">
             <label for="codigoCI">Código Actividad CIIU</label>
-            <input type="number" name="codigoCI" />
+            <input type="text" name="codigoCI" formControlName="codigoCI"/>
+            <span *ngIf="registerForm.get('codigoCI')?.touched && registerForm.get('codigoCI')?.errors?.['required']">
+              El codigo es requerido
+              </span>
+              <span *ngIf="registerForm.get('codigoCI')?.touched && registerForm.get('codigoCI')?.errors?.['minlength']">
+                La codigo debe tener minimo 5 caracteres
+                </span>
           </div>
           <div class="col-md-6 group-input">
             <label for="departamento">Departamento</label>
-            <input type="number" name="departamento" />
+            <input type="text" name="departamento" formControlName="departamento"/>
+            <span *ngIf="registerForm.get('departamento')?.touched && registerForm.get('departamento')?.errors?.['required']">
+              El departamento es requerido
+              </span>
           </div>
           <div class="col-md-6 group-input">
             <label for="ciudad">Ciudad</label>
-            <input type="number" name="ciudad" />
+            <input type="text" name="ciudad" formControlName="ciudad" />
+            <span *ngIf="registerForm.get('ciudad')?.touched && registerForm.get('ciudad')?.errors?.['required']">
+              La ciudad es requerida
+              </span>
           </div>
     </div>
       <!-- Fin -->
 
       <div class="col-md-12" style="padding:20px ;">
-        <button [disabled]="registerForm.invalid" type="submit" class="btn-enviar">Enviar</button>
+        <button  type="submit" class="btn-enviar"  data-bs-toggle="modal" data-bs-target="#ModalAlert">Enviar</button>
       </div>
     </form>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="ModalAlert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Alerta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Datos Guardado Conon Exito!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
   </div>
 </div>

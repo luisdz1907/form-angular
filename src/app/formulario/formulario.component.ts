@@ -13,6 +13,7 @@ import {
 })
 export class FormularioComponent implements OnInit {
   public registerForm!: FormGroup;
+  public btnCorp!: [{value:""}]
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
@@ -24,17 +25,27 @@ export class FormularioComponent implements OnInit {
       nombre: ['', [Validators.required]],
       direccion: ['', [Validators.required]],
       telefono: ['', [Validators.required]],
-      telefono2: ['', [Validators.required]],
+      telefonoR: ['', [Validators.required]],
+      NombreRespon: ['', [Validators.required]],
       paginaweb: ['', [Validators.required]],
       rut: ['', [Validators.required, Validators.minLength(5)]],
       correo: ['', [Validators.required,Validators.email]],
-      correo2: ['', [Validators.required,Validators.email]],
+      correoR: ['', [Validators.required,Validators.email]],
+      correoCorp: ['', [Validators.required,Validators.email]],
       razonsocial: ['', [Validators.required, Validators.minLength(25)]],
       servicioTextArea: ['', [Validators.required, Validators.minLength(25)]],
       nombreRepresentante: ['', [Validators.required]],
       cedula: ['', [Validators.required, Validators.minLength(10)]],
-      cedular: ['', [Validators.required]],
+      celular: ['', [Validators.required]],
+      ciudad: ['', [Validators.required]],
+      departamento: ['', [Validators.required]],
+      numeroResolucion: ['', [Validators.required]],
+      codigoCI: ['', [Validators.required, Validators.minLength(5)]],
     });
+  }
+
+  addBtn(){
+
   }
   enviarForm(values: any) {
     console.log(values);

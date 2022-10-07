@@ -26,6 +26,11 @@ h3{
     border-left: 4px solid #181818;
     font-weight: 700;
 }
+@media only screen and (max-width:480px){
+   h1{
+      font-size: 18px;
+   }
+}
 label{
     font-weight: 600;
     color: #283739;
